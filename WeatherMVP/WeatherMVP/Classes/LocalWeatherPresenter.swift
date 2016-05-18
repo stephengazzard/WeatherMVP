@@ -17,9 +17,16 @@ class LocalWeatherPresenter {
     private let view: LocalWeatherView
     private let wireframe: WeatherWireframe
 
-    init(view: LocalWeatherView, wireframe: WeatherWireframe) {
+    private let weatherCache: WeatherCache
+    private let weatherService: WeatherService
+
+    init(view: LocalWeatherView, wireframe: WeatherWireframe, weatherCache: WeatherCache, weatherService: WeatherService) {
         self.view = view
         self.wireframe = wireframe
+        self.weatherCache = weatherCache
+        self.weatherService = weatherService
     }
+
+    
 
 }
