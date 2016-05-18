@@ -8,8 +8,27 @@
 
 import UIKit
 
-class LocalWeatherViewController: UIViewController, LocalWeatherView {
+
+
+class LocalWeatherViewController: UIViewController {
 
     var presenter: LocalWeatherPresenter?
+
+    override func viewDidLoad() {
+        presenter?.viewDidLoad()
+        super.viewDidLoad()
+    }
+
+}
+
+extension LocalWeatherViewController: LocalWeatherView {
+
+    func setWeatherLoadState(loadState: LoadState) {
+        //TODO: Update
+    }
+
+    func setWeatherData(weather: WeatherDayResponse?) {
+        //TODO: Update
+    }
 
 }

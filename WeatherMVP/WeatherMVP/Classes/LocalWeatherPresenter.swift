@@ -8,7 +8,26 @@
 
 import UIKit
 
+enum LoadState : Equatable {
+    case Loading
+    case Loaded
+    case LoadFailed(reason: String)
+}
+
+
+func ==(lhs: LoadState, rhs: LoadState)->Bool {
+    switch (lhs, rhs) {
+        case (.Loading, .Loading): return true
+        case (.Loaded, .Loaded): return true
+        case (.LoadFailed(let reason1), .LoadFailed(let reason2)): return reason1 == reason2
+        default: return false
+    }
+}
+
 protocol LocalWeatherView {
+
+    func setWeatherLoadState(loadState: LoadState)
+    func setWeatherData(weather: WeatherDayResponse?)
 
 }
 
@@ -27,6 +46,19 @@ class LocalWeatherPresenter {
         self.weatherService = weatherService
     }
 
-    
+    //One downside to this pattern is that the presenter is still, to a small degree, tied to the lifecycle of the view, so some things make more sense to wait until viewDidLoad is called.
+    func viewDidLoad() {
+        view.setWeatherData(self.weatherCache.lastWeatherResponse)
+        if self.weatherCache.lastWeatherResponse != nil {
+            view.setWeatherLoadState(.Loaded)
+        } else {
+            self.reloadWeatherData()
+        }
+    }
+
+    func reloadWeatherData() {
+        view.setWeatherLoadState(.Loading)
+    }
+
 
 }

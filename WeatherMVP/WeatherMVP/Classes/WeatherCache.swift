@@ -8,8 +8,13 @@
 
 import UIKit
 
-class WeatherCache {
+protocol WeatherCache {
 
+    var lastWeatherResponse: WeatherDayResponse? { get set }
+
+}
+
+class WeatherNSCodingCache: WeatherCache {
     private var filePath: String
 
     var lastWeatherResponse: WeatherDayResponse? {

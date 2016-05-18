@@ -32,7 +32,7 @@ class WeatherWireframe {
 
     func showMyWeatherPage() {
         //For now, creating service / cache here - they could come from elsewhere if used in multiple places, and be passed into the wireframe.
-        let weatherCache = WeatherCache()
+        let weatherCache = WeatherNSCodingCache()
         let weatherService = WeatherService(remoteService: RESTService())
 
         let myWeatherViewController: LocalWeatherViewController = self.storyboard.instantiateViewControllerWithIdentifier("MyWeather")
