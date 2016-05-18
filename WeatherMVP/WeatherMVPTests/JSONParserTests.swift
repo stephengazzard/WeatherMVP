@@ -26,7 +26,7 @@ class JSONParserTests: QuickSpec {
                 }
 
                 context("to the type that matches the json file") {
-                    var jsonResponse: JSONDictionary?
+                    var jsonResponse: [String: AnyObject]?
                     var error: ErrorType?
                     beforeEach {
                         do {
@@ -46,7 +46,7 @@ class JSONParserTests: QuickSpec {
                 }
 
                 context("to a type that doesn't match the json file") {
-                    var jsonResponse: JSONArray?
+                    var jsonResponse: [[String: AnyObject]]?
                     var error: ErrorType?
                     beforeEach {
                         do {
@@ -67,7 +67,7 @@ class JSONParserTests: QuickSpec {
             }
 
             context("When parsing a malformed JSON file") {
-                var jsonResponse: JSONDictionary?
+                var jsonResponse: [String: AnyObject]?
                 var error: ErrorType?
 
                 beforeEach {
@@ -89,7 +89,7 @@ class JSONParserTests: QuickSpec {
             }
 
             context("When parsing a non-JSON file") {
-                var jsonResponse: JSONDictionary?
+                var jsonResponse: [String: AnyObject]?
                 var error: ErrorType?
 
                 beforeEach {

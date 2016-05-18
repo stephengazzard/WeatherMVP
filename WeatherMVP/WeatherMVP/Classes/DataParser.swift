@@ -16,9 +16,6 @@ protocol DataParser {
 
 class InvalidDataError: ErrorType { }
 
-typealias JSONDictionary = [String: AnyObject]
-typealias JSONArray = [JSONDictionary]
-
 class JSONDataParser: DataParser {
 
     func parseData<ResultType>(data: NSData) throws -> ResultType {

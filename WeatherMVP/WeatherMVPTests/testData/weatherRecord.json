@@ -1,0 +1,25 @@
+{
+"dt":1463569200,
+"temp":{
+"day":13.92,
+"min":12.09,
+"max":14.44,
+"night":12.09,
+"eve":14.44,
+"morn":12.34
+},
+"pressure":1009.44,
+"humidity":88,
+"weather":[
+{
+"id":501,
+"main":"Rain",
+"description":"moderate rain",
+"icon":"10d"
+}
+],
+"speed":5.01,
+"deg":202,
+"clouds":92,
+"rain":3.98
+}
