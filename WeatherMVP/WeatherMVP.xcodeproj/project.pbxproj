@@ -24,9 +24,9 @@
 		BCA916381CEC580B00568184 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA916371CEC580B00568184 /* DataParser.swift */; };
 		BCA9163B1CEC594500568184 /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA9163A1CEC594500568184 /* JSONParserTests.swift */; };
 		BCA9163D1CEC59CF00568184 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA9163C1CEC59CF00568184 /* TestHelper.swift */; };
-		BCA9163F1CEC5A7000568184 /* validJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = BCA9163E1CEC5A7000568184 /* validJSON.json */; };
-		BCA916411CEC5CB800568184 /* malformedJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = BCA916401CEC5CB800568184 /* malformedJSON.json */; };
-		BCA925DD1CEC5E5E00D932E8 /* nonJSON.dat in Resources */ = {isa = PBXBuildFile; fileRef = BCA925DC1CEC5E5E00D932E8 /* nonJSON.dat */; };
+		BCA925E21CEC5ED200D932E8 /* malformedJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = BCA925DF1CEC5ED200D932E8 /* malformedJSON.json */; };
+		BCA925E31CEC5ED200D932E8 /* nonJSON.dat in Resources */ = {isa = PBXBuildFile; fileRef = BCA925E01CEC5ED200D932E8 /* nonJSON.dat */; };
+		BCA925E41CEC5ED200D932E8 /* validJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = BCA925E11CEC5ED200D932E8 /* validJSON.json */; };
 		F81BBCB8489A218282F43C7A /* Pods_WeatherMVPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E6D590399873A3DA19C69AC /* Pods_WeatherMVPTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,9 +65,9 @@
 		BCA916391CEC594500568184 /* WeatherMVPTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeatherMVPTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		BCA9163A1CEC594500568184 /* JSONParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
 		BCA9163C1CEC59CF00568184 /* TestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
-		BCA9163E1CEC5A7000568184 /* validJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = validJSON.json; path = testData/validJSON.json; sourceTree = "<group>"; };
-		BCA916401CEC5CB800568184 /* malformedJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = malformedJSON.json; path = testData/malformedJSON.json; sourceTree = "<group>"; };
-		BCA925DC1CEC5E5E00D932E8 /* nonJSON.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = nonJSON.dat; path = testData/nonJSON.dat; sourceTree = "<group>"; };
+		BCA925DF1CEC5ED200D932E8 /* malformedJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = malformedJSON.json; sourceTree = "<group>"; };
+		BCA925E01CEC5ED200D932E8 /* nonJSON.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nonJSON.dat; sourceTree = "<group>"; };
+		BCA925E11CEC5ED200D932E8 /* validJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validJSON.json; sourceTree = "<group>"; };
 		C5270E728BD2E412EC764994 /* Pods-WeatherMVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherMVP.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherMVP/Pods-WeatherMVP.release.xcconfig"; sourceTree = "<group>"; };
 		D8E5D0C8B286207D1FBA644A /* Pods-WeatherMVP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherMVP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherMVP/Pods-WeatherMVP.debug.xcconfig"; sourceTree = "<group>"; };
 		EC71761CC212BE232382DC61 /* Pods-WeatherMVPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherMVPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherMVPTests/Pods-WeatherMVPTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,13 +150,11 @@
 		BCA915E41CEB5CE900568184 /* WeatherMVPTests */ = {
 			isa = PBXGroup;
 			children = (
+				BCA925DE1CEC5ED200D932E8 /* TestData */,
 				BCA915E71CEB5CE900568184 /* Info.plist */,
 				BCA9163A1CEC594500568184 /* JSONParserTests.swift */,
 				BCA916391CEC594500568184 /* WeatherMVPTests-Bridging-Header.h */,
 				BCA9163C1CEC59CF00568184 /* TestHelper.swift */,
-				BCA9163E1CEC5A7000568184 /* validJSON.json */,
-				BCA916401CEC5CB800568184 /* malformedJSON.json */,
-				BCA925DC1CEC5E5E00D932E8 /* nonJSON.dat */,
 			);
 			path = WeatherMVPTests;
 			sourceTree = "<group>";
@@ -175,6 +173,17 @@
 				BCA916371CEC580B00568184 /* DataParser.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		BCA925DE1CEC5ED200D932E8 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				BCA925DF1CEC5ED200D932E8 /* malformedJSON.json */,
+				BCA925E01CEC5ED200D932E8 /* nonJSON.dat */,
+				BCA925E11CEC5ED200D932E8 /* validJSON.json */,
+			);
+			name = TestData;
+			path = testData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,9 +283,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCA916411CEC5CB800568184 /* malformedJSON.json in Resources */,
-				BCA9163F1CEC5A7000568184 /* validJSON.json in Resources */,
-				BCA925DD1CEC5E5E00D932E8 /* nonJSON.dat in Resources */,
+				BCA925E21CEC5ED200D932E8 /* malformedJSON.json in Resources */,
+				BCA925E41CEC5ED200D932E8 /* validJSON.json in Resources */,
+				BCA925E31CEC5ED200D932E8 /* nonJSON.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

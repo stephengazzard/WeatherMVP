@@ -14,6 +14,25 @@ protocol RemoteService {
 
 }
 
+extension RemoteService {
+
+    func getObjectFromURL<ResultType>(url: String, parser: DataParser, success: (ResultType) -> (Void), failure: (ErrorType) -> (Void)) {
+        self.getDataFromURL(url, success: { (data) in
+            do {
+                let response: ResultType = try parser.parseData(data)
+                success(response)
+            } catch {
+                failure(error)
+            }
+        }, failure: failure)
+    }
+
+    func getJSONFromURL<ResultType>(url: String, success: (ResultType) -> (Void), failure: (ErrorType) -> (Void)) {
+        self.getObjectFromURL(url, parser: JSONDataParser(), success: success, failure: failure)
+    }
+
+}
+
 class InvalidURLError: ErrorType {}
 class UnexpectedError: ErrorType {}
 class NoDataError: ErrorType {}
