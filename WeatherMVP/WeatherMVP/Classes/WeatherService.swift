@@ -19,18 +19,21 @@ class WeatherService {
         self.remoteService = remoteService
     }
 
-    func fetchWeatherForecast(forCity city: String, numberOfRecords: Int = 16, success: ([WeatherDayRecord]) -> (Void), failure: (ErrorType) -> (Void)) {
+    func fetchWeatherForecast(forCity city: String, numberOfRecords: Int = 16, success: (WeatherDayResponse) -> (Void), failure: (ErrorType) -> (Void)) {
         guard numberOfRecords >= 1 && numberOfRecords <= 16 else {
             failure(InvalidNumberOfDaysError())
             return
         }
 
         let url = "api.openweathermap.org/data/2.5/forecast/daily?q=\(city)&mode=json&units=metric&cnt=\(numberOfRecords)&APPID=\(APIKey)"
-        self.remoteService.getJSONFromURL(url, success: { (result: [[String: AnyObject]]) in
-            NSLog("Got json: result")
-        }, failure: { (error) in
-            NSLog("Got error: error")
-        })
+        self.remoteService.getJSONFromURL(url, success: { (result: [String: AnyObject]) in
+            do {
+                let response = try WeatherDayResponse.createFromJSONDictionary(result)
+                success(response)
+            } catch(let parseError) {
+                failure(parseError)
+            }
+        }, failure: failure)
     }
 
 }
