@@ -13,10 +13,15 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var initialWireframe: WeatherWireframe?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        initialWireframe = WeatherWireframe()
+        self.window?.rootViewController = initialWireframe?.rootNavigationController
+        initialWireframe?.showLandingPage()
+        
         return true
     }
 
