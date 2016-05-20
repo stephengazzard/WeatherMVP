@@ -30,7 +30,7 @@ class WeatherWireframe {
         self.rootNavigationController.viewControllers = [landingPage]
     }
 
-    func showMyWeatherPage() {
+    func instantiateMyWeatherPage() -> LocalWeatherViewController {
         //For now, creating service / cache here - they could come from elsewhere if used in multiple places, and be passed into the wireframe.
         let weatherCache = WeatherNSCodingCache()
         let weatherService = WeatherService(remoteService: RESTService())
@@ -38,8 +38,11 @@ class WeatherWireframe {
         let myWeatherViewController: LocalWeatherViewController = self.storyboard.instantiateViewControllerWithIdentifier("MyWeather")
         let myWeatherPresenter = LocalWeatherPresenter(view: myWeatherViewController, wireframe: self, weatherCache: weatherCache, weatherService: weatherService)
         myWeatherViewController.presenter = myWeatherPresenter
+        return myWeatherViewController
+    }
 
-        self.rootNavigationController.pushViewController(myWeatherViewController, animated: true)
+    func showMyWeatherPage() {
+        self.rootNavigationController.pushViewController(instantiateMyWeatherPage(), animated: true)
     }
 
 }
