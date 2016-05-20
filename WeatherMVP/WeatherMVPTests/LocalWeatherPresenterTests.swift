@@ -58,6 +58,51 @@ class LocalWeatherPresenterTests: QuickSpec {
                 }
             }
         }
+
+        describe("When reloading the weather") {
+            var oldWeatherRecord: WeatherDayResponse!
+            beforeEach {
+                oldWeatherRecord = WeatherDayResponse(weatherRecords: [])
+                mockView.weatherData = oldWeatherRecord
+                mockCache.lastWeatherResponse = oldWeatherRecord
+            }
+            it("sets the loading state of the view to .Loading") {
+                expect(mockView.loadState).to(equal(LoadState.Loading))
+            }
+            context("and it succeeds") {
+                beforeEach {
+                    mockRemoteService.mockFileName = "dailyWeatherResponse.json"
+                    subject.reloadWeatherData()
+                }
+                it("sets the state of the view to .Loading") {
+                    expect(mockView.loadState).to(equal(LoadState.Loading))
+                }
+                it("eventually sets the state of the view to .Loaded") {
+                    expect(mockView.loadState).toEventually(equal(LoadState.Loaded))
+                }
+                it("the weather object the view is showing is eventually the new object") {
+                    expect(mockView.weatherData).toEventuallyNot(be(oldWeatherRecord))
+                }
+                it("the cache eventually stores the new weather object") {
+                    expect(mockCache.lastWeatherResponse).toEventuallyNot(be(oldWeatherRecord))
+                }
+            }
+            context("and it fails") {
+                beforeEach {
+                    mockRemoteService.mockFileName = "validJSON.json"
+                    subject.reloadWeatherData()
+                }
+                it("eventually sets the state of the view to .LoadFailed") {
+                    expect(mockView.loadState).toEventually(equal(LoadState.LoadFailed(reason: "")))
+                }
+                it("the view continues to show the last successful weather response") {
+                    expect(mockView.weatherData).toEventually(be(oldWeatherRecord))
+                }
+                it("the cache continues to hold the last downloaded weather response") {
+                    expect(mockCache.lastWeatherResponse).toEventually(be(oldWeatherRecord))
+                }
+            }
+        }
     }
 
 }

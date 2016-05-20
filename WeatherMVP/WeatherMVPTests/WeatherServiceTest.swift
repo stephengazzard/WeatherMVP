@@ -27,7 +27,7 @@ class WeatherServiceTest: QuickSpec {
                 var weatherResponse: WeatherDayResponse?
                 var error: ErrorType?
                 beforeEach {
-                    fileService.fileMapping = ["api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=json&units=metric&cnt=16&APPID=bb2b2312235500c5d0f419445c2c699b" : "dailyWeatherResponse.json"]
+                    fileService.mockFileName = "dailyWeatherResponse.json"
                     subject.fetchWeatherForecast(forCity: "London", success: { (response) in
                         weatherResponse = response
                     }, failure: { (fetchError) in
@@ -47,7 +47,7 @@ class WeatherServiceTest: QuickSpec {
                 var weatherResponse: WeatherDayResponse?
                 var error: ErrorType?
                 beforeEach {
-                    fileService.fileMapping = ["api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=json&units=metric&cnt=16&APPID=bb2b2312235500c5d0f419445c2c699b" : "validJSON.json"]
+                    fileService.mockFileName = "validJSON.json"
                     subject.fetchWeatherForecast(forCity: "London", success: { (response) in
                         weatherResponse = response
                     }, failure: { (fetchError) in
