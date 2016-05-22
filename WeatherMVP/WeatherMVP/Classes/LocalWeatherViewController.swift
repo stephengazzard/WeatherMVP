@@ -50,7 +50,15 @@ extension LocalWeatherViewController: UICollectionViewDataSource {
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return weatherCollectionView.dequeueReusableCellWithReuseIdentifier(Constants.WeatherCellReuseIdentifier, forIndexPath: indexPath)
+        guard let
+            weatherRecord = weatherResponse?.weatherRecords[indexPath.row],
+            weatherCell = weatherCollectionView.dequeueReusableCellWithReuseIdentifier(Constants.WeatherCellReuseIdentifier, forIndexPath: indexPath) as? WeatherCollectionViewCell
+        else { return UICollectionViewCell() }
+
+        weatherCell.highWeatherLabel.text = "\(weatherRecord.maxTemperature)ºC"
+        weatherCell.lowWeatherLabel.text = "\(weatherRecord.minTemperature)ºC"
+
+        return weatherCell
     }
 
 }

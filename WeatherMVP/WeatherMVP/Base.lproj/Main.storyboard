@@ -69,81 +69,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0x4-Lj-8GD">
-                                <rect key="frame" x="20" y="28" width="560" height="495"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hti-hB-6AR">
-                                    <size key="itemSize" width="110" height="110"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherCell" id="LOB-X2-yef" customClass="WeatherCollectionViewCell" customModule="WeatherMVP" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Weather_icons_grey-01-512" translatesAutoresizingMaskIntoConstraints="NO" id="ovU-P8-JZE">
-                                                    <rect key="frame" x="8" y="8" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="gah-c7-tBt"/>
-                                                        <constraint firstAttribute="height" constant="40" id="vF8-DA-n4F"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0ºC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmC-Ja-z2G">
-                                                    <rect key="frame" x="55" y="8" width="47" height="40"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High: 0ºC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFG-NT-C64">
-                                                    <rect key="frame" x="8" y="67" width="55.5" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low: 0ºC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Spt-ww-kXT">
-                                                    <rect key="frame" x="8" y="52" width="52" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 14, 2016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgG-gN-4eT">
-                                                    <rect key="frame" x="8" y="87" width="75" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="ovU-P8-JZE" firstAttribute="leading" secondItem="LOB-X2-yef" secondAttribute="leadingMargin" id="FCr-sd-l0h"/>
-                                            <constraint firstItem="NgG-gN-4eT" firstAttribute="leading" secondItem="LOB-X2-yef" secondAttribute="leadingMargin" id="FHF-sT-S1p"/>
-                                            <constraint firstItem="NgG-gN-4eT" firstAttribute="bottom" secondItem="LOB-X2-yef" secondAttribute="bottomMargin" id="Gpd-O9-htf"/>
-                                            <constraint firstItem="iFG-NT-C64" firstAttribute="top" secondItem="Spt-ww-kXT" secondAttribute="bottom" constant="1" id="Oj1-Nv-QBK"/>
-                                            <constraint firstItem="JmC-Ja-z2G" firstAttribute="top" secondItem="LOB-X2-yef" secondAttribute="topMargin" id="T8L-1Z-GqR"/>
-                                            <constraint firstItem="Spt-ww-kXT" firstAttribute="top" secondItem="JmC-Ja-z2G" secondAttribute="bottom" constant="4" id="TZc-8y-Uiz"/>
-                                            <constraint firstItem="JmC-Ja-z2G" firstAttribute="height" secondItem="ovU-P8-JZE" secondAttribute="height" id="bjh-J9-phO"/>
-                                            <constraint firstItem="ovU-P8-JZE" firstAttribute="top" secondItem="LOB-X2-yef" secondAttribute="topMargin" id="imW-CH-sfN"/>
-                                            <constraint firstItem="JmC-Ja-z2G" firstAttribute="trailing" secondItem="LOB-X2-yef" secondAttribute="trailingMargin" id="ov2-Sl-lqe"/>
-                                            <constraint firstItem="Spt-ww-kXT" firstAttribute="leading" secondItem="LOB-X2-yef" secondAttribute="leadingMargin" id="p6y-ya-znP"/>
-                                            <constraint firstItem="iFG-NT-C64" firstAttribute="leading" secondItem="LOB-X2-yef" secondAttribute="leadingMargin" id="qpZ-YJ-5qC"/>
-                                            <constraint firstItem="JmC-Ja-z2G" firstAttribute="leading" secondItem="ovU-P8-JZE" secondAttribute="trailing" constant="7" id="wTG-BT-P3c"/>
-                                            <constraint firstItem="NgG-gN-4eT" firstAttribute="top" secondItem="iFG-NT-C64" secondAttribute="bottom" constant="5.5" id="yft-Ru-lkN"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="currentWeatherLabel" destination="JmC-Ja-z2G" id="rLJ-3P-e28"/>
-                                            <outlet property="dateLabel" destination="NgG-gN-4eT" id="xW5-p0-4XJ"/>
-                                            <outlet property="highWeatherLabel" destination="iFG-NT-C64" id="HVS-yx-js6"/>
-                                            <outlet property="lowWeatherLabel" destination="Spt-ww-kXT" id="1OP-8t-CPu"/>
-                                            <outlet property="weatherImage" destination="ovU-P8-JZE" id="jsn-F8-NQL"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated: 12 / 01 / 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpc-4Z-nQT">
                                 <rect key="frame" x="193" y="559" width="215" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -153,6 +78,56 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Jxk-mh-CDn">
                                 <rect key="frame" x="290" y="531" width="20" height="20"/>
                             </activityIndicatorView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0x4-Lj-8GD">
+                                <rect key="frame" x="20" y="28" width="560" height="495"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hti-hB-6AR">
+                                    <size key="itemSize" width="110" height="95"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherCell" id="LOB-X2-yef" customClass="WeatherCollectionViewCell" customModule="WeatherMVP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="95"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="95"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High: 0ºC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFG-NT-C64">
+                                                    <rect key="frame" x="8" y="67" width="55.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Low: 0ºC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Spt-ww-kXT">
+                                                    <rect key="frame" x="8" y="52" width="52" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Weather_icons_grey-01-512" translatesAutoresizingMaskIntoConstraints="NO" id="ovU-P8-JZE">
+                                                    <rect key="frame" x="35" y="8" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Y9J-gh-zDG"/>
+                                                        <constraint firstAttribute="height" constant="40" id="gMk-nx-V1I"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="ovU-P8-JZE" firstAttribute="top" secondItem="LOB-X2-yef" secondAttribute="topMargin" id="07r-u2-b3g"/>
+                                            <constraint firstItem="ovU-P8-JZE" firstAttribute="centerX" secondItem="LOB-X2-yef" secondAttribute="centerX" id="3SG-Jk-72w"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="highWeatherLabel" destination="iFG-NT-C64" id="HVS-yx-js6"/>
+                                            <outlet property="lowWeatherLabel" destination="Spt-ww-kXT" id="1OP-8t-CPu"/>
+                                            <outlet property="weatherImage" destination="ovU-P8-JZE" id="jsn-F8-NQL"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

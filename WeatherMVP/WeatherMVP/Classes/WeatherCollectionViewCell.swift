@@ -10,10 +10,7 @@ import UIKit
 
 class WeatherCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet private var currentWeatherLabel: UILabel!
-    @IBOutlet private var highWeatherLabel: UILabel!
-    @IBOutlet private var lowWeatherLabel: UILabel!
-    @IBOutlet private var dateLabel: UILabel!
-    @IBOutlet private var weatherImage: UIImageView!
+    @IBOutlet var highWeatherLabel: UILabel!
+    @IBOutlet var lowWeatherLabel: UILabel!
     
 }
