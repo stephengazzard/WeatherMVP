@@ -9,6 +9,17 @@
 import UIKit
 
 
+class UpdatedAtDateFormatter {
+
+    class func format(input: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .ShortStyle
+        dateFormatter.timeStyle = .NoStyle
+        let formattedDate = dateFormatter.stringFromDate(input)
+        return "Updated at \(formattedDate)"
+    }
+
+}
 
 class LocalWeatherViewController: UIViewController {
 
@@ -28,22 +39,38 @@ class LocalWeatherViewController: UIViewController {
 
 extension LocalWeatherViewController: LocalWeatherView {
 
+    struct Constants {
+        static let LoadingMessage = "Loading"
+        static private let WeatherCellReuseIdentifier = "WeatherCell"
+    }
+
     func setWeatherLoadState(loadState: LoadState) {
-        //TODO: Update
+        switch loadState {
+        case .Loading:
+            activityIndicator.startAnimating()
+            lastUpdatedLabel.text = LocalWeatherViewController.Constants.LoadingMessage
+        case .Loaded:
+            activityIndicator.stopAnimating()
+            if let weatherResponse = weatherResponse {
+                lastUpdatedLabel.text = UpdatedAtDateFormatter.format(weatherResponse.updatedTimeStamp)
+            } else {
+                lastUpdatedLabel.text = ""
+            }
+        case .LoadFailed(let failureReason):
+            activityIndicator.stopAnimating()
+            lastUpdatedLabel.text = failureReason
+        }
+
     }
 
     func setWeatherData(weather: WeatherDayResponse?) {
         weatherResponse = weather
-        self.weatherCollectionView.reloadData()
+        weatherCollectionView.reloadData()
     }
 
 }
 
 extension LocalWeatherViewController: UICollectionViewDataSource {
-
-    struct Constants {
-        static let WeatherCellReuseIdentifier = "WeatherCell"
-    }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherResponse?.weatherRecords.count ?? 0

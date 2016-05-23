@@ -59,6 +59,73 @@ class LocalWeatherViewControllerTests: QuickSpec {
             }
         }
 
+        describe("When setting weather load state") {
+
+            context("to loading") {
+                beforeEach {
+                    subject.setWeatherLoadState(.Loading)
+                }
+
+                it("the spinner spins") {
+                    expect(subject.activityIndicator.isAnimating()).to(beTrue())
+                }
+
+                it("shows a 'loading' string") {
+                    expect(subject.lastUpdatedLabel.text).to(equal(LocalWeatherViewController.Constants.LoadingMessage))
+                }
+            }
+
+            context("to loaded") {
+                context("when a weather response has previously been loaded") {
+                    var loadedWeatherResponse: WeatherDayResponse!
+                    beforeEach {
+                        loadedWeatherResponse = WeatherDayResponse(weatherRecords: [])
+                        subject.setWeatherData(loadedWeatherResponse)
+                        subject.setWeatherLoadState(.Loaded)
+                    }
+
+                    it("the spinner does not spin") {
+                        expect(subject.activityIndicator.isAnimating()).to(beFalse())
+                    }
+
+                    it("the timestamp of the load is shown") {
+                        expect(subject.lastUpdatedLabel.text).to(equal(UpdatedAtDateFormatter.format(loadedWeatherResponse.updatedTimeStamp)))
+                    }
+                }
+
+                context("when a weather response has not previously been loaded") {
+                    beforeEach {
+                        subject.setWeatherData(nil)
+                        subject.setWeatherLoadState(.Loaded)
+                    }
+
+                    it("the spinner does not spin") {
+                        expect(subject.activityIndicator.isAnimating()).to(beFalse())
+                    }
+
+                    it("the loading message is empty") {
+                        expect(subject.lastUpdatedLabel.text).to(equal(""))
+                    }
+                }
+            }
+
+            context("to load failed") {
+                var errorString: String!
+                beforeEach {
+                    errorString = "Failed to load"
+                    subject.setWeatherLoadState(.LoadFailed(reason: errorString))
+                }
+
+                it("the spinner does not spin") {
+                    expect(subject.activityIndicator.isAnimating()).to(beFalse())
+                }
+
+                it("the error message is shown") {
+                    expect(subject.lastUpdatedLabel.text).to(equal(errorString))
+                }
+            }
+        }
+
     }
 
 }
