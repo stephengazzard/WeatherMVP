@@ -69,16 +69,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Error: Something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kw-sl-jpO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error: Something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kw-sl-jpO">
                                 <rect key="frame" x="235" y="534" width="130" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Jxk-mh-CDn">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Jxk-mh-CDn">
                                 <rect key="frame" x="290" y="511" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="qWJ-kd-XVd"/>
+                                </constraints>
                             </activityIndicatorView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0x4-Lj-8GD">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0x4-Lj-8GD">
                                 <rect key="frame" x="20" y="28" width="560" height="475"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hti-hB-6AR">
@@ -159,10 +162,18 @@
                             <constraint firstItem="0x4-Lj-8GD" firstAttribute="leading" secondItem="6IA-5Q-2TT" secondAttribute="leadingMargin" id="5r7-ui-8UZ"/>
                             <constraint firstItem="1kw-sl-jpO" firstAttribute="top" secondItem="Jxk-mh-CDn" secondAttribute="bottom" constant="3" id="Gww-EK-HFs"/>
                             <constraint firstItem="0x4-Lj-8GD" firstAttribute="trailing" secondItem="6IA-5Q-2TT" secondAttribute="trailingMargin" id="MGF-Rd-u00"/>
+                            <constraint firstItem="1kw-sl-jpO" firstAttribute="top" secondItem="Jxk-mh-CDn" secondAttribute="bottom" constant="3" id="OwM-O4-NYt"/>
                             <constraint firstItem="1kw-sl-jpO" firstAttribute="centerX" secondItem="6IA-5Q-2TT" secondAttribute="centerX" id="Qu3-zp-9cY"/>
+                            <constraint firstItem="G91-vo-qhz" firstAttribute="top" secondItem="1kw-sl-jpO" secondAttribute="bottom" constant="7" id="WfU-g1-hkr"/>
                             <constraint firstItem="0x4-Lj-8GD" firstAttribute="top" secondItem="9r1-Ok-7DD" secondAttribute="bottom" constant="8" id="eB4-AY-z6P"/>
                             <constraint firstItem="Jxk-mh-CDn" firstAttribute="top" secondItem="0x4-Lj-8GD" secondAttribute="bottom" constant="8" id="hyw-n1-7an"/>
+                            <constraint firstItem="Jxk-mh-CDn" firstAttribute="centerX" secondItem="6IA-5Q-2TT" secondAttribute="centerX" id="nQp-zl-ZhI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Gww-EK-HFs"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="Jxk-mh-CDn" id="oW4-Hm-75F"/>
