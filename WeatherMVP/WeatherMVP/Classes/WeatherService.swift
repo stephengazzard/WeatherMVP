@@ -27,11 +27,13 @@ class WeatherService {
 
         let url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=\(city)&mode=json&units=metric&cnt=\(numberOfRecords)&APPID=\(APIKey)"
         self.remoteService.getJSONFromURL(url, success: { (result: [String: AnyObject]) in
-            do {
-                let response = try WeatherDayResponse.createFromJSONDictionary(result)
-                success(response)
-            } catch(let parseError) {
-                failure(parseError)
+            dispatch_async(dispatch_get_main_queue()) {
+                do {
+                    let response = try WeatherDayResponse.createFromJSONDictionary(result)
+                    success(response)
+                } catch(let parseError) {
+                    failure(parseError)
+                }
             }
         }, failure: failure)
     }
