@@ -25,7 +25,7 @@ class WeatherService {
             return
         }
 
-        let url = "api.openweathermap.org/data/2.5/forecast/daily?q=\(city)&mode=json&units=metric&cnt=\(numberOfRecords)&APPID=\(APIKey)"
+        let url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=\(city)&mode=json&units=metric&cnt=\(numberOfRecords)&APPID=\(APIKey)"
         self.remoteService.getJSONFromURL(url, success: { (result: [String: AnyObject]) in
             do {
                 let response = try WeatherDayResponse.createFromJSONDictionary(result)
