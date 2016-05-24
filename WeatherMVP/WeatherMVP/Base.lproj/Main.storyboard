@@ -125,10 +125,13 @@
                                         <connections>
                                             <outlet property="highWeatherLabel" destination="iFG-NT-C64" id="HVS-yx-js6"/>
                                             <outlet property="lowWeatherLabel" destination="Spt-ww-kXT" id="1OP-8t-CPu"/>
-                                            <outlet property="weatherImage" destination="ovU-P8-JZE" id="jsn-F8-NQL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="tT3-fz-1qe" id="MNN-Yx-lvV"/>
+                                    <outlet property="delegate" destination="tT3-fz-1qe" id="zgR-N4-GeZ"/>
+                                </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="G91-vo-qhz">
                                 <rect key="frame" x="169" y="562" width="274" height="30"/>
