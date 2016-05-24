@@ -81,11 +81,12 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Jxk-mh-CDn">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Jxk-mh-CDn">
                                 <rect key="frame" x="290" y="511" width="20" height="20"/>
                             </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0x4-Lj-8GD">
                                 <rect key="frame" x="20" y="28" width="560" height="475"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hti-hB-6AR">
                                     <size key="itemSize" width="110" height="95"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -122,6 +123,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="ovU-P8-JZE" firstAttribute="top" secondItem="LOB-X2-yef" secondAttribute="topMargin" id="07r-u2-b3g"/>
                                             <constraint firstItem="ovU-P8-JZE" firstAttribute="centerX" secondItem="LOB-X2-yef" secondAttribute="centerX" id="3SG-Jk-72w"/>
