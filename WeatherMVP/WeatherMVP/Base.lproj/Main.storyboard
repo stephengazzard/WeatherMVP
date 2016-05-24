@@ -69,22 +69,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated: 12 / 01 / 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpc-4Z-nQT">
-                                <rect key="frame" x="193" y="559" width="215" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error: Something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kw-sl-jpO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Error: Something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kw-sl-jpO">
                                 <rect key="frame" x="235" y="534" width="130" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Jxk-mh-CDn">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Jxk-mh-CDn">
                                 <rect key="frame" x="290" y="511" width="20" height="20"/>
                             </activityIndicatorView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0x4-Lj-8GD">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0x4-Lj-8GD">
                                 <rect key="frame" x="20" y="28" width="560" height="475"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hti-hB-6AR">
@@ -136,26 +130,36 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="G91-vo-qhz">
+                                <rect key="frame" x="169" y="562" width="274" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Last Updated: 12 / 01 / 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpc-4Z-nQT">
+                                        <rect key="frame" x="0.0" y="0.0" width="215" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBR-H2-Bwi">
+                                        <rect key="frame" x="227" y="0.0" width="47" height="30"/>
+                                        <state key="normal" title="Reload"/>
+                                        <connections>
+                                            <action selector="reloadWeather" destination="tT3-fz-1qe" eventType="touchUpInside" id="k8o-Hc-g9Q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="G91-vo-qhz" firstAttribute="centerX" secondItem="6IA-5Q-2TT" secondAttribute="centerX" id="3ip-cQ-BZA"/>
+                            <constraint firstItem="hvl-QE-ixj" firstAttribute="top" secondItem="G91-vo-qhz" secondAttribute="bottom" constant="8" id="5X9-BA-nf3"/>
                             <constraint firstItem="0x4-Lj-8GD" firstAttribute="leading" secondItem="6IA-5Q-2TT" secondAttribute="leadingMargin" id="5r7-ui-8UZ"/>
-                            <constraint firstItem="Jxk-mh-CDn" firstAttribute="centerX" secondItem="fpc-4Z-nQT" secondAttribute="centerX" id="6ji-0o-bml"/>
                             <constraint firstItem="1kw-sl-jpO" firstAttribute="top" secondItem="Jxk-mh-CDn" secondAttribute="bottom" constant="3" id="Gww-EK-HFs"/>
                             <constraint firstItem="0x4-Lj-8GD" firstAttribute="trailing" secondItem="6IA-5Q-2TT" secondAttribute="trailingMargin" id="MGF-Rd-u00"/>
                             <constraint firstItem="1kw-sl-jpO" firstAttribute="centerX" secondItem="6IA-5Q-2TT" secondAttribute="centerX" id="Qu3-zp-9cY"/>
-                            <constraint firstItem="fpc-4Z-nQT" firstAttribute="centerX" secondItem="6IA-5Q-2TT" secondAttribute="centerX" id="anb-m2-xmm"/>
                             <constraint firstItem="0x4-Lj-8GD" firstAttribute="top" secondItem="9r1-Ok-7DD" secondAttribute="bottom" constant="8" id="eB4-AY-z6P"/>
                             <constraint firstItem="Jxk-mh-CDn" firstAttribute="top" secondItem="0x4-Lj-8GD" secondAttribute="bottom" constant="8" id="hyw-n1-7an"/>
-                            <constraint firstItem="fpc-4Z-nQT" firstAttribute="top" secondItem="Jxk-mh-CDn" secondAttribute="bottom" constant="8" id="k9y-8D-Qqc"/>
-                            <constraint firstItem="fpc-4Z-nQT" firstAttribute="top" secondItem="1kw-sl-jpO" secondAttribute="bottom" constant="4" id="lOb-dL-M3w"/>
-                            <constraint firstItem="hvl-QE-ixj" firstAttribute="top" secondItem="fpc-4Z-nQT" secondAttribute="bottom" constant="20" id="qC9-er-MTN"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="k9y-8D-Qqc"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="Jxk-mh-CDn" id="oW4-Hm-75F"/>

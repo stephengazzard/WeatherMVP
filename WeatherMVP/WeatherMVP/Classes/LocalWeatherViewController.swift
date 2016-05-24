@@ -36,6 +36,12 @@ class LocalWeatherViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    //MARK: - IBActions
+
+    @IBAction func reloadWeather() {
+        presenter?.reloadWeatherData()
+    }
+
 }
 
 extension LocalWeatherViewController: LocalWeatherView {
