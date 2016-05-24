@@ -28,6 +28,7 @@ class LocalWeatherViewController: UIViewController {
 
     @IBOutlet var weatherCollectionView: UICollectionView!
     @IBOutlet var lastUpdatedLabel: UILabel!
+    @IBOutlet var errorMessageLabel: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
@@ -48,17 +49,16 @@ extension LocalWeatherViewController: LocalWeatherView {
         switch loadState {
         case .Loading:
             activityIndicator.startAnimating()
+            errorMessageLabel.text = ""
             lastUpdatedLabel.text = LocalWeatherViewController.Constants.LoadingMessage
         case .Loaded:
             activityIndicator.stopAnimating()
-            if let weatherResponse = weatherResponse {
-                lastUpdatedLabel.text = UpdatedAtDateFormatter.format(weatherResponse.updatedTimeStamp)
-            } else {
-                lastUpdatedLabel.text = ""
-            }
+            errorMessageLabel.text = ""
+            updateLastUpdatedLabel()
         case .LoadFailed(let failureReason):
             activityIndicator.stopAnimating()
-            lastUpdatedLabel.text = failureReason
+            errorMessageLabel.text = failureReason
+            updateLastUpdatedLabel()
         }
 
     }
@@ -66,6 +66,14 @@ extension LocalWeatherViewController: LocalWeatherView {
     func setWeatherData(weather: WeatherDayResponse?) {
         weatherResponse = weather
         weatherCollectionView.reloadData()
+    }
+
+    private func updateLastUpdatedLabel() {
+        if let weatherResponse = weatherResponse {
+            lastUpdatedLabel.text = UpdatedAtDateFormatter.format(weatherResponse.updatedTimeStamp)
+        } else {
+            lastUpdatedLabel.text = ""
+        }
     }
 
 }

@@ -50,7 +50,7 @@ class LocalWeatherViewControllerTests: QuickSpec {
                         WeatherDayRecord(minTemperature: 0, maxTemperature: 1),
                         WeatherDayRecord(minTemperature: 0, maxTemperature: 1),
                         WeatherDayRecord(minTemperature: 0, maxTemperature: 1)
-                    ]))
+                        ]))
                 }
 
                 it("weather response shows 0 objects") {
@@ -73,6 +73,10 @@ class LocalWeatherViewControllerTests: QuickSpec {
                 it("shows a 'loading' string") {
                     expect(subject.lastUpdatedLabel.text).to(equal(LocalWeatherViewController.Constants.LoadingMessage))
                 }
+
+                it("the error label is blank") {
+                    expect(subject.errorMessageLabel.text).to(equal(""))
+                }
             }
 
             context("to loaded") {
@@ -91,6 +95,10 @@ class LocalWeatherViewControllerTests: QuickSpec {
                     it("the timestamp of the load is shown") {
                         expect(subject.lastUpdatedLabel.text).to(equal(UpdatedAtDateFormatter.format(loadedWeatherResponse.updatedTimeStamp)))
                     }
+
+                    it("the error label is blank") {
+                        expect(subject.errorMessageLabel.text).to(equal(""))
+                    }
                 }
 
                 context("when a weather response has not previously been loaded") {
@@ -106,6 +114,10 @@ class LocalWeatherViewControllerTests: QuickSpec {
                     it("the loading message is empty") {
                         expect(subject.lastUpdatedLabel.text).to(equal(""))
                     }
+
+                    it("the error label is blank") {
+                        expect(subject.errorMessageLabel.text).to(equal(""))
+                    }
                 }
             }
 
@@ -113,19 +125,30 @@ class LocalWeatherViewControllerTests: QuickSpec {
                 var errorString: String!
                 beforeEach {
                     errorString = "Failed to load"
-                    subject.setWeatherLoadState(.LoadFailed(reason: errorString))
                 }
+                context("when a weather response has previously been loaded") {
+                    var loadedWeatherResponse: WeatherDayResponse!
+                    beforeEach {
+                        loadedWeatherResponse = WeatherDayResponse(weatherRecords: [])
+                        subject.setWeatherData(loadedWeatherResponse)
+                        subject.setWeatherLoadState(.LoadFailed(reason: errorString))
+                    }
 
-                it("the spinner does not spin") {
-                    expect(subject.activityIndicator.isAnimating()).to(beFalse())
-                }
+                    it("the spinner does not spin") {
+                        expect(subject.activityIndicator.isAnimating()).to(beFalse())
+                    }
+                    
+                    it("the error message is shown") {
+                        expect(subject.errorMessageLabel.text).to(equal(errorString))
+                    }
 
-                it("the error message is shown") {
-                    expect(subject.lastUpdatedLabel.text).to(equal(errorString))
+                    it("the timestamp of the load is shown") {
+                        expect(subject.lastUpdatedLabel.text).to(equal(UpdatedAtDateFormatter.format(loadedWeatherResponse.updatedTimeStamp)))
+                    }
                 }
             }
         }
-
+        
     }
-
+    
 }
